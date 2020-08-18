@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/SampleScene.unity
+- path: Assets/FluidDynamics/ExampleScenes/Example scene 5.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
