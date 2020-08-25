@@ -9,14 +9,17 @@ namespace FluidDynamics
         public states updateMode;
         public bool m_alwaysOn = false;
         private Vector3 m_previousMousePosition;
-        [HideInInspector]
+
         public float m_velocityStrength = 10f;
-        [HideInInspector]
+
         public float m_velocityRadius = 5f;
-        [HideInInspector]
+
         public float m_particlesStrength = 1f;
-        [HideInInspector]
+
         public float m_particlesRadius = 5f;
+
+        public GameObject player;
+
         private Collider m_tempCol;
         private Renderer m_tempRend;
         private Ray ray;
@@ -89,9 +92,13 @@ namespace FluidDynamics
                     fWidth = m_tempRend.bounds.extents.x * 2f;
                     fRadius = (m_velocityRadius * m_fluid.GetWidth()) / fWidth;
 
+                    direction = m_mousePos - player.transform.position;
+
                     if (Input.GetMouseButton(0))
                     {
+                        
                         m_fluid.AddVelocity(hitInfo.textureCoord, -direction, fRadius);
+                        Debug.Log(direction);
                     }
                     else
                     {
