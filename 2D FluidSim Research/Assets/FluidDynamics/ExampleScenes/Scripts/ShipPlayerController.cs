@@ -4,25 +4,33 @@ using System.Collections;
 public class ShipPlayerController : MonoBehaviour
 {
 	public float m_speed = 1f;
-	public float m_rotationSpeed = 1f;
+	public float m_movementSpeed = 1f;
     public Renderer m_moveArea;
 
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.LeftArrow))
+		if (Input.GetKey(KeyCode.A))
 		{
-			transform.Rotate(new Vector3(0f, 0f, m_rotationSpeed * Time.deltaTime));
+			transform.Translate(new Vector3(-m_movementSpeed * Time.deltaTime, 0f, 0f));
 		}
 
-		if (Input.GetKey(KeyCode.RightArrow))
+		if (Input.GetKey(KeyCode.D))
 		{
-			transform.Rotate(new Vector3(0f, 0f, -m_rotationSpeed * Time.deltaTime));
+			transform.Translate(new Vector3(m_movementSpeed * Time.deltaTime, 0f, 0f));
+		}
+		
+		if (Input.GetKey(KeyCode.W))
+		{
+			transform.Translate(new Vector3(0f, m_movementSpeed * Time.deltaTime, 0f));
 		}
 
-		Vector3 dir = transform.rotation * Vector3.right;
-		transform.position += dir * m_speed * Time.deltaTime;
-
-        if (!m_moveArea.bounds.Contains(transform.position))
+		if (Input.GetKey(KeyCode.S))
+		{
+			transform.Translate(new Vector3(0f, -m_movementSpeed * Time.deltaTime, 0f));
+		}
+	
+		//Check if within bounds of the renderer, if not move back in bounds on opposite side
+		if (!m_moveArea.bounds.Contains(transform.position))
         {
             Vector3 new_pos = transform.position;
             if (transform.position.x > m_moveArea.bounds.max.x)
