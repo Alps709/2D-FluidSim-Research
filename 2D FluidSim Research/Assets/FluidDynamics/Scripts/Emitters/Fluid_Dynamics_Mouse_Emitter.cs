@@ -99,12 +99,40 @@ namespace FluidDynamics
                 
                 if (m_tempCol.Raycast(ray, out hitInfo, 100))
                 {
-                    direction = Vector3.Normalize(m_mousePos - fireStartScreenSpace) * m_velocityStrength * Time.deltaTime;
+                    direction = Vector3.Normalize(m_mousePos - fireStartScreenSpace);
+
+                    Debug.Log("Direction: " + direction);
                     
-                    m_fluid.AddParticles(hitInfo.textureCoord, 100f, 1000f);
-                    m_fluid.AddVelocity(hitInfo.textureCoord, direction * m_velocityStrength, m_velocityRadius);
+                    m_fluid.AddParticles(hitInfo.textureCoord, m_particlesRadius, m_particlesStrength);
+                    m_fluid.AddVelocity(hitInfo.textureCoord, direction * m_velocityStrength * Time.deltaTime, m_velocityRadius);
                 }
-                m_previousMousePosition = Input.mousePosition;
+            }
+
+            if (Input.GetMouseButton(1) || m_alwaysOn)
+            {
+                //Get position on screen of ray hit on texture
+                float tempX = m_player.transform.position.x;
+                float tempY = m_player.transform.position.y;
+                Vector3 fireStartPos = new Vector3(tempX, tempY, 0f);
+                Vector3 fireStartScreenSpace = cam.WorldToScreenPoint(fireStartPos);
+                
+                //Get mouse pos to shoot fire towards
+                m_mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
+                
+                //Get the ray to where the fire is being shot from
+                ray = Camera.main.ScreenPointToRay(fireStartScreenSpace);
+                
+                Debug.Log("Fire start pos: " + fireStartScreenSpace);
+                Debug.Log("Mouse pos: " + m_mousePos);
+                
+                if (m_tempCol.Raycast(ray, out hitInfo, 100))
+                {
+                    direction = Vector3.Normalize(m_mousePos - fireStartScreenSpace);
+
+                    Debug.Log("Direction: " + direction);
+                    
+                    m_fluid.AddVelocity(hitInfo.textureCoord, direction * m_velocityStrength * Time.deltaTime, m_velocityRadius);
+                }
             }
         }
     }

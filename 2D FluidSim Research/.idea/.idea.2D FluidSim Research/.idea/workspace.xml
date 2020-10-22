@@ -17,6 +17,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController2D.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CharacterController2D.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/FluidDynamics/Scripts/Editor/Main_Fluid_Simulation_Editor.cs" />
+        <option value="$PROJECT_DIR$/Assets/FluidDynamics/Scripts/Editor/Fluid_Dynamics_Mouse_Manipulator_Editor.cs" />
         <option value="$PROJECT_DIR$/Assets/FluidDynamics/Scripts/Emitters/Fluid_Dynamics_Mouse_Emitter.cs" />
       </list>
     </option>
@@ -28,8 +30,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2fb2458c-f1f1-44ce-bba4-517ecca15794" name="Default Changelist" comment="" />
+      <created>1603335833535</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603335833535</updated>
+      <workItem from="1603335840771" duration="1124000" />
+    </task>
+    <servers />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

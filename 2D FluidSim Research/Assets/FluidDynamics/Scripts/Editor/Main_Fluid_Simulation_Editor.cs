@@ -43,7 +43,7 @@ namespace FluidDynamics
                     m_target.Resolution = 128;
                     break;
             }
-            m_target.Vorticity = EditorGUILayout.Slider("Vorticity", m_target.Vorticity, 0.0f, 50.0f);
+            m_target.Vorticity = EditorGUILayout.Slider("Vorticity", m_target.Vorticity, 0.0f, 150.0f);
             m_target.Viscosity = EditorGUILayout.Slider("Viscosity", m_target.Viscosity * 10.0f, 0.0f, 1.0f) / 10.0f;
 
             m_showAdvanced = Foldout(m_showAdvanced, "Advanced", true, EditorStyles.foldout);
