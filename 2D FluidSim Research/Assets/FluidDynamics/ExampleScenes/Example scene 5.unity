@@ -2384,7 +2384,7 @@ MonoBehaviour:
   m_alwaysOn: 0
   m_velocityStrength: 10
   m_velocityRadius: 5
-  m_particlesStrength: 10000
+  m_particlesStrength: 3690
   m_particlesRadius: 5
   m_player: {fileID: 282830270}
 --- !u!114 &1327596085

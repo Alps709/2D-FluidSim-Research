@@ -9,14 +9,15 @@ namespace FluidDynamics
         public Camera cam;
         public states updateMode;
         public bool m_alwaysOn = false;
+        private Vector3 m_previousMousePosition;
 
-        public float m_velocityStrength = 10f;
+        public float m_velocityStrength = 100f;
 
         public float m_velocityRadius = 10f;
 
-        public float m_particlesStrength = 10f;
+        public float m_particlesStrength = 50f;
 
-        public float m_particlesRadius = 10f;
+        public float m_particlesRadius = 50f;
 
         public GameObject m_player;
         
@@ -25,8 +26,8 @@ namespace FluidDynamics
         
         private Ray ray;
         private RaycastHit hitInfo;
-        private Vector2 direction;
-        private Vector2 m_mousePos;
+        private Vector3 direction;
+        private Vector3 m_mousePos;
         
         
         #endregion
@@ -98,46 +99,12 @@ namespace FluidDynamics
                 
                 if (m_tempCol.Raycast(ray, out hitInfo, 100))
                 {
-                    Vector2 firestart = new Vector2(fireStartScreenSpace.x, fireStartScreenSpace.y);
-                    direction = m_mousePos - firestart;
-                    direction.Normalize();
-                    direction *= m_velocityStrength;
-                    Debug.Log("Velocity strength: " + m_velocityStrength);
-                    Debug.Log("Delta time: " + Time.deltaTime);
-                    Debug.Log("Direction: " + direction);
-                    Debug.Log("Direction: " + direction);
+                    direction = Vector3.Normalize(m_mousePos - fireStartScreenSpace) * m_velocityStrength * Time.deltaTime;
                     
                     m_fluid.AddParticles(hitInfo.textureCoord, 100f, 1000f);
                     m_fluid.AddVelocity(hitInfo.textureCoord, direction * m_velocityStrength, m_velocityRadius);
                 }
-            }
-
-            if (Input.GetMouseButton(1) || m_alwaysOn)
-            {
-                //Get position on screen of ray hit on texture
-                float tempX = m_player.transform.position.x;
-                float tempY = m_player.transform.position.y;
-                Vector3 fireStartPos = new Vector3(tempX, tempY, 0f);
-                Vector3 fireStartScreenSpace = cam.WorldToScreenPoint(fireStartPos);
-                
-                //Get mouse pos to shoot fire towards
-                m_mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-                
-                //Get the ray to where the fire is being shot from
-                ray = Camera.main.ScreenPointToRay(fireStartScreenSpace);
-                
-                Debug.Log("Fire start pos: " + fireStartScreenSpace);
-                Debug.Log("Mouse pos: " + m_mousePos);
-                
-                if (m_tempCol.Raycast(ray, out hitInfo, 100))
-                {
-                    Vector2 firestart = new Vector2(fireStartScreenSpace.x, fireStartScreenSpace.y);
-                    direction = m_mousePos - firestart;
-                    direction.Normalize(); 
-                    direction *= m_velocityStrength;
-
-                    m_fluid.AddVelocity(hitInfo.textureCoord, direction * m_velocityStrength, m_velocityRadius);
-                }
+                m_previousMousePosition = Input.mousePosition;
             }
         }
     }
