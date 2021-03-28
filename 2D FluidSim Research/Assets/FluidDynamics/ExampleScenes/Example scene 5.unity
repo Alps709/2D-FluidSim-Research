@@ -2382,10 +2382,10 @@ MonoBehaviour:
   cam: {fileID: 1447140095}
   updateMode: 0
   m_alwaysOn: 0
-  m_velocityStrength: 10
-  m_velocityRadius: 5
-  m_particlesStrength: 3690
-  m_particlesRadius: 5
+  m_velocityStrength: 59
+  m_velocityRadius: 6.8
+  m_particlesStrength: 95000
+  m_particlesRadius: 61
   m_player: {fileID: 282830270}
 --- !u!114 &1327596085
 MonoBehaviour:
