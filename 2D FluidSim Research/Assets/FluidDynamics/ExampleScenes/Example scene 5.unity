@@ -2382,10 +2382,10 @@ MonoBehaviour:
   cam: {fileID: 1447140095}
   updateMode: 0
   m_alwaysOn: 0
-  m_velocityStrength: 59
+  m_velocityStrength: 24
   m_velocityRadius: 6.8
-  m_particlesStrength: 95000
-  m_particlesRadius: 61
+  m_particlesStrength: 74000
+  m_particlesRadius: 6
   m_player: {fileID: 282830270}
 --- !u!114 &1327596085
 MonoBehaviour:
@@ -2405,9 +2405,9 @@ MonoBehaviour:
   m_speed: 500
   m_iterations: 50
   m_velocityDissipation: 0.9985
-  m_vorticityScale: 50
+  m_vorticityScale: 88.1
   m_viscosity: 0
-  m_nResolution: 256
+  m_nResolution: 512
   m_cacheVelocity: 0
   m_CacheParticles: 0
   m_colourGradient:
