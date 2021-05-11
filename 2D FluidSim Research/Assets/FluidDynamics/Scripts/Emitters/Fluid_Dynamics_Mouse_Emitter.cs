@@ -26,8 +26,7 @@ namespace FluidDynamics
         
         private Ray ray;
         private RaycastHit hitInfo;
-        private Vector3 direction;
-        private Vector3 m_mousePos;
+        private Vector2 m_mousePos;
         
         
         #endregion
@@ -85,11 +84,12 @@ namespace FluidDynamics
                 //Get position on screen of ray hit on texture
                 float tempX = m_player.transform.position.x;
                 float tempY = m_player.transform.position.y;
-                Vector3 fireStartPos = new Vector3(tempX, tempY, 0f);
-                Vector3 fireStartScreenSpace = cam.WorldToScreenPoint(fireStartPos);
+
+                Vector2 fireStartPos = new Vector3(tempX, tempY, 0f);
+                Vector2 fireStartScreenSpace = new Vector2(cam.WorldToScreenPoint(fireStartPos).x, cam.WorldToScreenPoint(fireStartPos).y);
                 
                 //Get mouse pos to shoot fire towards
-                m_mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
+                m_mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
                 
                 //Get the ray to where the fire is being shot from
                 ray = Camera.main.ScreenPointToRay(fireStartScreenSpace);
@@ -99,12 +99,13 @@ namespace FluidDynamics
                 
                 if (m_tempCol.Raycast(ray, out hitInfo, 100))
                 {
-                    direction = Vector3.Normalize(m_mousePos - fireStartScreenSpace);
-
-                    Debug.Log("Direction: " + direction);
+                    Vector2 dir = m_mousePos - fireStartScreenSpace;
+                    dir.Normalize();
+                    
+                    Debug.Log("Direction: " + dir);
                     
                     m_fluid.AddParticles(hitInfo.textureCoord, m_particlesRadius, m_particlesStrength);
-                    m_fluid.AddVelocity(hitInfo.textureCoord, direction * m_velocityStrength * Time.deltaTime, m_velocityRadius);
+                    m_fluid.AddVelocity(hitInfo.textureCoord, dir, m_velocityRadius);
                 }
             }
 
@@ -113,11 +114,11 @@ namespace FluidDynamics
                 //Get position on screen of ray hit on texture
                 float tempX = m_player.transform.position.x;
                 float tempY = m_player.transform.position.y;
-                Vector3 fireStartPos = new Vector3(tempX, tempY, 0f);
-                Vector3 fireStartScreenSpace = cam.WorldToScreenPoint(fireStartPos);
+                Vector2 fireStartPos = new Vector3(tempX, tempY, 0f);
+                Vector2 fireStartScreenSpace = new Vector2(cam.WorldToScreenPoint(fireStartPos).x, cam.WorldToScreenPoint(fireStartPos).y);
                 
                 //Get mouse pos to shoot fire towards
-                m_mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
+                m_mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
                 
                 //Get the ray to where the fire is being shot from
                 ray = Camera.main.ScreenPointToRay(fireStartScreenSpace);
@@ -127,11 +128,12 @@ namespace FluidDynamics
                 
                 if (m_tempCol.Raycast(ray, out hitInfo, 100))
                 {
-                    direction = Vector3.Normalize(m_mousePos - fireStartScreenSpace);
+                    Vector2 dir = m_mousePos - fireStartScreenSpace;
+                   dir.Normalize();
 
-                    Debug.Log("Direction: " + direction);
+                    Debug.Log("Direction: " + dir);
                     
-                    m_fluid.AddVelocity(hitInfo.textureCoord, direction * m_velocityStrength * Time.deltaTime, m_velocityRadius);
+                    m_fluid.AddVelocity(hitInfo.textureCoord, dir, m_velocityRadius);
                 }
             }
         }
