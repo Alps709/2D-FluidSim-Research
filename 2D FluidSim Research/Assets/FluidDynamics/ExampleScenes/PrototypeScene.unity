@@ -352,7 +352,6 @@ GameObject:
   - component: {fileID: 586009793}
   - component: {fileID: 586009792}
   - component: {fileID: 586009791}
-  - component: {fileID: 586009790}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -360,24 +359,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &586009790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586009789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81c31a2ec975e384a816f7f673fc9936, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vorticity: {fileID: 0}
-  viscocity: {fileID: 0}
-  partLife: {fileID: 0}
-  resolution: {fileID: 0}
-  simSpeed: {fileID: 0}
-  fluid: {fileID: 1327596085}
 --- !u!114 &586009791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,7 +909,6 @@ GameObject:
   - component: {fileID: 1327596080}
   - component: {fileID: 1327596085}
   - component: {fileID: 1327596084}
-  - component: {fileID: 1327596087}
   - component: {fileID: 1327596086}
   m_Layer: 0
   m_Name: Fluid Plane
@@ -1104,34 +1084,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_fluid: {fileID: 1327596085}
   cam: {fileID: 1447140095}
-  updateMode: 2
+  updateMode: 0
   m_alwaysOn: 0
   m_velocityStrength: 500
   m_velocityRadius: 5
   m_particlesStrength: 100000
   m_particlesRadius: 3
   m_player: {fileID: 335262527}
---- !u!114 &1327596087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327596079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa6424b4d3e83204b8021fae19861614, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_fluid: {fileID: 1327596085}
-  cam: {fileID: 1447140095}
-  updateMode: 2
-  m_alwaysOn: 0
-  m_velocityStrength: 500
-  m_velocityRadius: 5
-  m_particlesStrength: 100000
-  m_particlesRadius: 3
-  m_player: {fileID: 282830270}
 --- !u!1 &1390260053
 GameObject:
   m_ObjectHideFlags: 0
