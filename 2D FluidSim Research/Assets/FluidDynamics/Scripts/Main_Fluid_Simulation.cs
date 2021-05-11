@@ -131,7 +131,9 @@ public class Main_Fluid_Simulation : MonoBehaviour {
     private int READ = 0;
     private int WRITE = 1;
     private float[] m_currentParticles;
-    private Renderer m_tempRend;
+
+    public Renderer m_tempRend;
+
     #endregion
 
 
@@ -513,7 +515,7 @@ public class Main_Fluid_Simulation : MonoBehaviour {
     void SetSizeInShaders()
     {
         m_particleAreaShader.SetInts("_ParticleSize", new int[] { m_nParticlesWidth, m_nParticlesHeight });
-        m_tempRend.material.SetVector("_Size", new Vector2(m_nParticlesWidth, m_nParticlesHeight));
+        m_tempRend.material.SetVector("_Size", new Vector2(m_nParticlesWidth, m_nParticlesWidth));
     }
     public void AddParticles(Vector2 position, float fRadius, float fStrength)
     {
@@ -530,6 +532,31 @@ public class Main_Fluid_Simulation : MonoBehaviour {
             FlipBuffers();
             m_tempRend.material.SetBuffer("_Particles", m_particlesBuffer[READ]);
         }
+    }
+
+    public Color GetPixelColour(float uvx, float uvy)
+    {
+        //Get the values of the particle data
+        int nOldHeight = m_nParticlesHeight;
+        int nOldWidth = m_nParticlesWidth;
+        float[] oldParticleData = new float[nOldWidth * nOldHeight];
+        m_particlesBuffer[READ].GetData(oldParticleData);
+        
+        //Get the array of possible colour values
+        Vector4[] oldColourData = new Vector4[m_nColourRampSize];
+        m_colourRamp.GetData(oldColourData);
+        
+        //Convert uv coords to pixel/cell coords
+        int x = (int)(uvx * m_nParticlesWidth);
+        int y = (int)(uvy * m_nParticlesHeight);
+        
+        //Get the index for the particle data to get the number of particles in this pixel/cell at the uv coord
+        int particleIndex = (int)oldParticleData[y * m_nParticlesWidth + x];
+        
+        //Get the colour value for this amount of particles in a pixel/cell
+        //Clamp the index value between 0-255 so we don't get out of bounds errors
+        Vector4 color = oldColourData[(int)Mathf.Clamp(particleIndex, 0.0f, 255.0f)];
+        return new Color(color.x, color.y, color.z, color.w);
     }
 }
 }
