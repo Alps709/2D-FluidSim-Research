@@ -6,6 +6,7 @@ namespace Assets.Scripts
 	public class CharacterController2D : MonoBehaviour
 	{
 		[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
+		[SerializeField] private float m_movementSpeed = 400.0f;
 		[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 		[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
 		[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
@@ -69,9 +70,10 @@ namespace Assets.Scripts
 			if (m_Grounded || m_AirControl)
 			{
 				// Move the character by finding the target velocity
-				Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+				Vector3 targetVelocity = new Vector2(move * m_movementSpeed, m_Rigidbody2D.velocity.y);
 				// And then smoothing it out and applying it to the character
 				m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+				Debug.Log("Target Velocity: " + targetVelocity);
 
 				// If the input is moving the player right and the player is facing left...
 				if (move > 0 && !m_FacingRight)

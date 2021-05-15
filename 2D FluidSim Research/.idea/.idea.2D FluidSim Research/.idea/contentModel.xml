@@ -56,7 +56,8 @@
         <e p="Scripts" t="Include">
           <e p="CharacterController2D.cs" t="Include" />
           <e p="OnFireCheck.cs" t="Include" />
-          <e p="PlayerMovement.cs" t="Include" />
+          <e p="PlayerControlManager.cs" t="Include" />
+          <e p="PlayerControls.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
