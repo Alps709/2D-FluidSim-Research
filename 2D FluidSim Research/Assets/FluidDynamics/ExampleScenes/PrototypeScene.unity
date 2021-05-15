@@ -594,8 +594,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 8
-  m_Material: {fileID: 0}
+  m_GravityScale: 20
+  m_Material: {fileID: 6200000, guid: 204365d4cec97f5429c80a510d2b7f6f, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -626,20 +626,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c92335dca5d4b1498d7f4f84f17e11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 2500
-  m_CrouchSpeed: 0.36
+  m_JumpForce: 3500
   m_MovementSmoothing: 0.05
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 55
   m_GroundCheck: {fileID: 903624657}
-  m_CeilingCheck: {fileID: 495885378}
-  m_CrouchDisableCollider: {fileID: 0}
+  extraJumps: 1
   OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &681541674
@@ -984,19 +979,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 1000
-  m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 55
   m_GroundCheck: {fileID: 544467292}
-  m_CeilingCheck: {fileID: 93635707}
-  m_CrouchDisableCollider: {fileID: 0}
+  extraJumps: 0
   OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1077664281

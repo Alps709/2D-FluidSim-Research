@@ -53,10 +53,9 @@
             </e>
           </e>
         </e>
-        <e p="OnFireCheck.cs" t="Include" />
-        <e p="scri.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="CharacterController2D.cs" t="Include" />
+          <e p="OnFireCheck.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
         </e>
       </e>
