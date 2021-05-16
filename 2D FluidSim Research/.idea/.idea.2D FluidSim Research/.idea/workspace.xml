@@ -34,6 +34,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerGamepadControlManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerKBMControlManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CharacterKBMController2D.cs" />
+      <option value="$PROJECT_DIR$/Assets/PlayerHealth.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/OnFireCheck.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1j8SvJpqjONxfnCH2fAnSPrVDxo" />

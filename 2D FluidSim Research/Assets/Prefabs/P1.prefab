@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 2888126145510199608}
   - component: {fileID: 2888126145510199612}
   - component: {fileID: 2888126145510199611}
+  - component: {fileID: 1698531056928706889}
   - component: {fileID: 2888126145510199607}
   - component: {fileID: 2888126145510199606}
   m_Layer: 8
@@ -222,6 +223,19 @@ MonoBehaviour:
   m_fluid: {fileID: 0}
   playerColour: {fileID: 2888126144711576699}
   IsOnFire: 0
+--- !u!114 &1698531056928706889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2888126145510199605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21abed35f08fbf408b68a3f8dbb69bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
 --- !u!50 &2888126145510199607
 Rigidbody2D:
   serializedVersion: 4

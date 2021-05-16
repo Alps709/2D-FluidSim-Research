@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 1823333192031552135}
   - component: {fileID: 7278793786261783018}
   - component: {fileID: 2481343814092908566}
+  - component: {fileID: 8268073635373416056}
   - component: {fileID: 9132441517600424628}
   - component: {fileID: 5394889420565590232}
   m_Layer: 8
@@ -133,15 +134,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4159cf3c37473114f84461615864ebed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 400
-  m_movementSpeed: 400
+  m_JumpForce: 3500
+  m_movementSpeed: 2500
   m_MovementSmoothing: 0.05
-  m_AirControl: 0
+  m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 55
   m_GroundCheck: {fileID: 4975647819219769948}
-  extraJumps: 0
+  extraJumps: 1
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -175,7 +176,7 @@ MonoBehaviour:
   m_velocityStrength: 100
   m_velocityRadius: 6
   m_particlesStrength: 1000
-  m_particlesRadius: 6
+  m_particlesRadius: 5
   m_fireStartPos: {fileID: 6817675391742866059}
 --- !u!114 &2481343814092908566
 MonoBehaviour:
@@ -190,8 +191,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fluid: {fileID: 0}
+  damagePS: 25
   playerColour: {fileID: 2462412902942373308}
   IsOnFire: 0
+--- !u!114 &8268073635373416056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255494537713840789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21abed35f08fbf408b68a3f8dbb69bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
 --- !u!50 &9132441517600424628
 Rigidbody2D:
   serializedVersion: 4

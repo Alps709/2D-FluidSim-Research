@@ -14,13 +14,16 @@ public class OnFireCheck : MonoBehaviour
     private int frameCount = 0;
     
     public Main_Fluid_Simulation m_fluid;
+    public float damagePS = 25.0f;
     public SpriteRenderer playerColour;
     public bool IsOnFire = false;
+    private PlayerHealth _playerHealth;
 
     private Vector2 playerPosScreenSpace;
-    
-    private void Start()
+
+    private void Awake()
     {
+        _playerHealth = GetComponent<PlayerHealth>();
         m_tempCol = m_fluid.GetComponent<Collider>();
         m_tempRend = m_fluid.m_tempRend as MeshRenderer;
     }
@@ -38,6 +41,10 @@ public class OnFireCheck : MonoBehaviour
         if(IsOnFire)
         {
             playerColour.color = Color.red;
+            if(_playerHealth != null)
+            {
+                _playerHealth.Health -= damagePS * Time.deltaTime;
+            }
         }
         else
         {
