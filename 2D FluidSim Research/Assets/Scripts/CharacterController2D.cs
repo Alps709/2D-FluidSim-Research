@@ -14,8 +14,9 @@ namespace Assets.Scripts
 
 		const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 		bool m_Grounded;            // Whether or not the player is grounded.
-		Rigidbody2D m_Rigidbody2D;
 		bool m_FacingRight = true;  // For determining which way the player is currently facing.
+		Rigidbody2D m_Rigidbody2D;
+		private PlayerFluidEmitter _fluidEmitter;
 		Vector3 m_Velocity = Vector3.zero;
 
 		public int extraJumps = 0;
@@ -32,6 +33,7 @@ namespace Assets.Scripts
 		private void Awake()
 		{
 			m_Rigidbody2D = GetComponent<Rigidbody2D>();
+			_fluidEmitter = GetComponent<PlayerFluidEmitter>();
 
 			if (OnLandEvent == null)
 				OnLandEvent = new UnityEvent();
@@ -112,7 +114,11 @@ namespace Assets.Scripts
 			}
 		}
 
-
+		public void Shoot()
+		{
+			_fluidEmitter.ManipulateFluid(new Vector2(1.0f, 0.0f));
+		}
+		
 		private void Flip()
 		{
 			// Switch the way the player is labelled as facing.

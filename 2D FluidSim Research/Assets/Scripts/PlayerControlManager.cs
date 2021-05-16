@@ -12,8 +12,7 @@ public class  PlayerControlManager : MonoBehaviour
     
     private float _horizontalMove = 0.0f;
     private bool jump = false;
-    private bool canActivate = false;
-    
+    private float shoot;
 
     // Start is called before the first frame update
     void Awake()
@@ -23,7 +22,6 @@ public class  PlayerControlManager : MonoBehaviour
         Controls.Gameplay.Jump.performed += context =>
         {
             Jump();
-            canActivate = false;
         };
 
         Controls.Gameplay.HorizontalMovement.performed += context =>
@@ -34,6 +32,16 @@ public class  PlayerControlManager : MonoBehaviour
         Controls.Gameplay.HorizontalMovement.canceled += context =>
         {
             _horizontalMove = 0.0f;
+        };
+
+        Controls.Gameplay.Shoot.performed += context =>
+        {
+            shoot = context.ReadValue<float>();
+        };
+        
+        Controls.Gameplay.Shoot.canceled += context =>
+        {
+            shoot = context.ReadValue<float>();
         };
     }
 
@@ -48,7 +56,11 @@ public class  PlayerControlManager : MonoBehaviour
         //Move the character based on input
         Character.Move(_horizontalMove * Time.fixedDeltaTime, false, jump);
         jump = false;
-        canActivate = true;
+
+        if(shoot >= 0.8f)
+        {
+            Character.Shoot();
+        }
     }
 
     void Jump()

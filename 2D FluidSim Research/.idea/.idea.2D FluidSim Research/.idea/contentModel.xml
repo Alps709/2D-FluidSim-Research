@@ -53,6 +53,7 @@
             </e>
           </e>
         </e>
+        <e p="PlayerFluidEmitter.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="CharacterController2D.cs" t="Include" />
           <e p="OnFireCheck.cs" t="Include" />
