@@ -34,6 +34,11 @@ public class PlayerFluidEmitter : MonoBehaviour
 
         public void ManipulateFluid(Vector2 direction)
         {
+            if(direction == Vector2.zero)
+            {
+                direction = (m_fireStartPos.transform.position - gameObject.transform.position).normalized;
+            }
+            
             //Get position on screen of ray hit on texture
             Vector2 fireStartPos = (Vector2)m_fireStartPos.transform.position;
             Vector2 fireStartScreenSpace = new Vector2(cam.WorldToScreenPoint(fireStartPos).x, cam.WorldToScreenPoint(fireStartPos).y);

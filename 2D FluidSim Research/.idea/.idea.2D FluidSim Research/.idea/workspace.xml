@@ -26,9 +26,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/FluidDynamics/Scripts/Editor/Fluid_Dynamics_Mouse_Manipulator_Editor.cs" />
       <option value="$PROJECT_DIR$/Assets/FluidDynamics/Scripts/Emitters/Fluid_Dynamics_Mouse_Emitter.cs" />
-      <option value="$PROJECT_DIR$/Assets/PlayerFluidEmitter.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterController2D.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerControlManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterController2D.cs" />
+      <option value="$PROJECT_DIR$/Assets/PlayerFluidEmitter.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1j8SvJpqjONxfnCH2fAnSPrVDxo" />

@@ -683,9 +683,9 @@ MonoBehaviour:
   m_fluid: {fileID: 1327596085}
   cam: {fileID: 1447140095}
   m_velocityStrength: 100
-  m_velocityRadius: 10
-  m_particlesStrength: 50
-  m_particlesRadius: 50
+  m_velocityRadius: 6
+  m_particlesStrength: 1000
+  m_particlesRadius: 6
   m_fireStartPos: {fileID: 282830270}
 --- !u!1 &903624656
 GameObject:

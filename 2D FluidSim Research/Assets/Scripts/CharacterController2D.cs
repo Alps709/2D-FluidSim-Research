@@ -114,9 +114,9 @@ namespace Assets.Scripts
 			}
 		}
 
-		public void Shoot()
+		public void Shoot(Vector2 direction)
 		{
-			_fluidEmitter.ManipulateFluid(new Vector2(1.0f, 0.0f));
+			_fluidEmitter.ManipulateFluid(direction);
 		}
 		
 		private void Flip()

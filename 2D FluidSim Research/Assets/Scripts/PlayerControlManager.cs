@@ -13,6 +13,7 @@ public class  PlayerControlManager : MonoBehaviour
     private float _horizontalMove = 0.0f;
     private bool jump = false;
     private float shoot;
+    private Vector2 shootDirection;
 
     // Start is called before the first frame update
     void Awake()
@@ -43,6 +44,16 @@ public class  PlayerControlManager : MonoBehaviour
         {
             shoot = context.ReadValue<float>();
         };
+        
+        Controls.Gameplay.Aim.performed += context =>
+        {
+            shootDirection = context.ReadValue<Vector2>();
+        };
+        
+        Controls.Gameplay.Aim.canceled += context =>
+        {
+            shootDirection = new Vector2(0.0f, 0.0f);
+        };
     }
 
     private void OnEnable()
@@ -59,7 +70,7 @@ public class  PlayerControlManager : MonoBehaviour
 
         if(shoot >= 0.8f)
         {
-            Character.Shoot();
+            Character.Shoot(shootDirection);
         }
     }
 
