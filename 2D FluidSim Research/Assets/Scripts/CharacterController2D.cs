@@ -66,7 +66,7 @@ namespace Assets.Scripts
 			}
 		}
 		
-		public void Move(float move, bool crouch, bool jump)
+		public void Move(float move, Vector2 aimDirection, bool jump)
 		{
 			//only control the player if grounded or airControl is turned on
 			if (m_Grounded || m_AirControl)
@@ -78,26 +78,20 @@ namespace Assets.Scripts
 				Debug.Log("Target Velocity: " + targetVelocity);
 
 				// If the input is moving the player right and the player is facing left...
-				if (move > 0 && !m_FacingRight)
+				if ((move > 0 && !m_FacingRight) || (move < 0 && m_FacingRight))
 				{
-					// ... flip the player.
+					//Flip the player.
 					Flip();
 				}
-				// Otherwise if the input is moving the player left and the player is facing right...
-				else if (move < 0 && m_FacingRight)
-				{
-					// ... flip the player.
-					Flip();
-				}
+				//Update the direction based on aimDirection aswell
+				FaceDirection(aimDirection);
 			}
 			// If the player should jump...
 			if(jump && !m_Grounded && currentExtraJumps > 0)
 			{
-				//Cancel out downward velocity so each jump applies the same speed
-				// if(m_Rigidbody2D.velocity.y)
-				// {
-					m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0.0f);
-				//}
+				//Cancel out velocity so each jump applies the same jump distance
+				m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 0.0f);
+
 				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 				currentExtraJumps--;
 			}
@@ -116,6 +110,7 @@ namespace Assets.Scripts
 
 		public void Shoot(Vector2 direction)
 		{
+			FaceDirection(direction);
 			_fluidEmitter.ManipulateFluid(direction);
 		}
 		
@@ -128,6 +123,18 @@ namespace Assets.Scripts
 			Vector3 theScale = transform.localScale;
 			theScale.x *= -1;
 			transform.localScale = theScale;
+		}
+
+		private void FaceDirection(Vector2 direction)
+		{
+			if(direction.x == 0)
+			{
+				return;
+			}
+			else if((direction.x > 0 && !m_FacingRight) || (direction.x < 0 && m_FacingRight))
+			{
+				Flip();
+			}
 		}
 	}
 }

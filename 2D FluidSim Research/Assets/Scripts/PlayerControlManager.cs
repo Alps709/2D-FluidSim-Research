@@ -65,7 +65,7 @@ public class  PlayerControlManager : MonoBehaviour
     {
         Debug.Log(_horizontalMove);
         //Move the character based on input
-        Character.Move(_horizontalMove * Time.fixedDeltaTime, false, jump);
+        Character.Move(_horizontalMove * Time.fixedDeltaTime, shootDirection, jump);
         jump = false;
 
         if(shoot >= 0.8f)
