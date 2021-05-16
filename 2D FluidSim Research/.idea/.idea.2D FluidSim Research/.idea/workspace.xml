@@ -9,11 +9,12 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31D5D65B-32EC-4832-92E1-3E8AE4100B93/d0/d8b4a4d0/Gradient.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterController2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CharacterGamepadController2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31D5D65B-32EC-4832-92E1-3E8AE4100B93/2f/7a49f9a2/MeshRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4B174777-563D-4A31-A6EC-AD2BF865B856/2d/cf9406cb/Collider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://C:/Program Files/Unity/Hub/Editor/2020.2.6f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31D5D65B-32EC-4832-92E1-3E8AE4100B93/ea/f18855ae/Color.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerKBMControlManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PlayerFluidEmitter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Editor/AssetEditor/InputActionTreeView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/31D5D65B-32EC-4832-92E1-3E8AE4100B93/93/9ee39f65/ComputeBuffer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -29,6 +30,10 @@
       <option value="$PROJECT_DIR$/Assets/PlayerFluidEmitter.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerControlManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CharacterController2D.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterGamepadController2D.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerGamepadControlManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/PlayerKBMControlManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CharacterKBMController2D.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1j8SvJpqjONxfnCH2fAnSPrVDxo" />
